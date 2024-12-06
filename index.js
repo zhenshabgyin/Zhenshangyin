@@ -554,6 +554,8 @@ class ZhenshangyinDatePicker {
         confirm.addEventListener('click', (event) => {
             event.stopPropagation();
             scrollContainer.style.display = 'none';
+            this.updateDateDisplay('start');
+            this.updateDateDisplay('end');
         });
         document.addEventListener('click', (event) => {
             if (!dropdown.contains(event.target)) {
@@ -1147,11 +1149,9 @@ class ZhenshangyinDateRangePicker {
             `;
         document.body.appendChild(picker);
         this.picker = picker;
-
         picker.addEventListener('click', (event) => {
             event.stopPropagation();
         });
-
         this.setupDatePickers();
         this.setupButtons();
 
@@ -1522,7 +1522,7 @@ class ZhenshangyinDateRangePicker {
 
                 const formattedStartDate = this.formatDate(this.startDate);
                 const formattedEndDate = this.formatDate(this.endDate);
-                const formattedRange = `${formattedStartDate}${this.separator}${formattedEndDate}`; // Use separator
+                const formattedRange = `${formattedStartDate}${this.separator}${formattedEndDate}`; 
                 this.dateInput.value = formattedRange;
                 this.picker.classList.remove('zhenshangyin-custom-show');
                 this.picker.classList.remove('zhenshangyin-custom-down');
@@ -2702,5 +2702,4 @@ class ZhenshangyinDropdown {
         document.head.appendChild(style);
     }
 }
-
 

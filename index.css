@@ -1,0 +1,170 @@
+@charset "utf-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    transition: all 0.3s;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: "a";
+}
+input {
+    box-sizing: border-box;
+    border: transparent;
+    background: transparent;
+    outline: none;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+    color: inherit;
+}
+
+input:-moz-placeholder,
+textarea:-moz-placeholder {
+    color: inherit;
+}
+
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+    color: inherit;
+}
+
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+    color: inherit;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+img {
+    display: block;
+    border: 0;
+}
+
+textarea,
+select,
+option,
+input {
+    outline: none;
+}
+
+
+
+
+@font-face {
+    font-family: "a";
+    src: url("a.ttf") format("truetype");
+}
+
+.Zhenshangyin-rom{
+    width: 95%;
+    overflow: hidden;
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 20px;
+}
+.Zhenshangyin-xiala{
+    width: 95%;
+    overflow: hidden;
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+.Zhenshangyin-list{
+    width: 100%;
+    overflow: hidden;
+    padding: 20px;
+    border: 1px solid #00000010;
+    border-radius: 10px;
+}
+.Zhenshangyin-list button{
+    width: 100%;
+    height: 50px;
+    background: #7d1ef9a8;
+    border: transparent;
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+}
+.asas,
+.Zhenshangyin-list input{
+    width: 100%;
+    height: 50px;
+    border: 1px solid #00000030;
+    padding: 10px;
+    font-size: 14px;
+    color: #00000080;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.ZhenshangYin{
+    margin-top: 20px;
+    border-radius: 10px;
+    position: relative;
+}
+.Zhenshangyin-riqi{
+    width: 95%;
+    overflow: hidden;
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+
+.code-highlight {
+    background-color: #000000;
+    color: #ffffff;
+    line-height: 2;
+    white-space: pre-wrap;
+    font-size: 14px;
+}
+
+.code-highlight .keyword {
+    color: #ff007c;
+}
+
+.code-highlight .string {
+    color: #ffcc00;
+}
+
+.code-highlight .number {
+    color: #00d9ff;
+}
+
+.code-highlight .function {
+    color: #00ff00;
+}
+
+.code-highlight .property {
+    color: #ffa500;
+}
+
+.code-highlight .comment {
+    color: #6a9955;
+}
+
+.code-highlight .operator {
+    color: #dcdcaa;
+}
+
+.code-highlight .punctuation {
+    color: #ffffff;
+}
