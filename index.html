@@ -6,53 +6,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zhenshangyin</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <script src="map.js"></script>
     <script src="index.js"></script>
     <script src="call.js"></script>
     <link rel="stylesheet" href="index.css">
 </head>
+
 <body>
     <div class="Zhenshangyin-rom">
         <div class="Zhenshangyin-list">
             <button id="successButton">显示成功消息</button>
             <div class="ZhenshangYin">
-                new ZhenshangyinNotification({ 
-                    title: '提示', 
-                    message: '成功了', 
-                    type: 'success', 
-                    duration: 2000 
+                new ZhenshangyinNotification({
+                    title: '提示',
+                    message: '成功了',
+                    type: 'success',
+                    duration: 2000
                 });
             </div>
         </div>
         <div class="Zhenshangyin-list">
             <button id="warningButton">显示警告消息</button>
             <div class="ZhenshangYin">
-                new ZhenshangyinNotification({ 
-                    title: '提示', 
-                    message: '出错了', 
-                    type: 'error', 
-                    duration: 2000 
+                new ZhenshangyinNotification({
+                    title: '提示',
+                    message: '出错了',
+                    type: 'error',
+                    duration: 2000
                 });
             </div>
         </div>
         <div class="Zhenshangyin-list">
             <button id="infoButton">显示信息消息</button>
             <div class="ZhenshangYin">
-                new ZhenshangyinNotification({ 
-                    title: '提示', 
-                    message: '这是一个警告', 
-                    type: 'warning', 
-                    duration: 2000 
+                new ZhenshangyinNotification({
+                title: '提示',
+                    message: '这是一个警告',
+                    type: 'warning',
+                    duration: 2000
                 });
             </div>
         </div>
         <div class="Zhenshangyin-list">
             <button id="errorButton">显示错误消息</button>
             <div class="ZhenshangYin">
-                new ZhenshangyinNotification({ 
-                    title: '提示', 
-                    message: '这是一个信息', 
-                    type: 'info', 
-                    duration: 2000 
+                new ZhenshangyinNotification({
+                    title: '提示',
+                    message: '这是一个信息',
+                    type: 'info',
+                    duration: 2000
                 });
             </div>
         </div>
@@ -62,40 +64,40 @@
         <div class="Zhenshangyin-list">
             <button id="successButtona">显示成功消息</button>
             <div class="ZhenshangYin">
-                new ZhenshangyinMessage({ 
-                    message: '成功了', 
-                    type: 'success', 
-                    duration: 2000 
+                new ZhenshangyinMessage({
+                    message: '成功了',
+                    type: 'success',
+                    duration: 2000
                 });
             </div>
         </div>
         <div class="Zhenshangyin-list">
             <button id="warningButtona">显示警告消息</button>
             <div class="ZhenshangYin">
-                new ZhenshangyinMessage({ 
-                    message: '出错了', 
-                    type: 'error', 
-                    duration: 2000 
+                new ZhenshangyinMessage({
+                    message: '出错了',
+                    type: 'error',
+                    duration: 2000
                 });
             </div>
         </div>
         <div class="Zhenshangyin-list">
             <button id="infoButtona">显示信息消息</button>
             <div class="ZhenshangYin">
-                new ZhenshangyinMessage({ 
-                    message: '这是一个警告', 
-                    type: 'warning', 
-                    duration: 2000 
+                new ZhenshangyinMessage({
+                    message: '这是一个警告',
+                    type: 'warning',
+                    duration: 2000
                 });
             </div>
         </div>
         <div class="Zhenshangyin-list">
             <button id="errorButtona">显示错误消息</button>
             <div class="ZhenshangYin">
-                new ZhenshangyinMessage({ 
-                    message: '这是一个信息', 
-                    type: 'info', 
-                    duration: 2000 
+                new ZhenshangyinMessage({
+                    message: '这是一个信息',
+                    type: 'info',
+                    duration: 2000
                 });
             </div>
         </div>
@@ -182,11 +184,11 @@
             <input type="text" id="month-range-input" placeholder="选择月份区间">
             <div class="ZhenshangYin">
                 new ZhenshangyinMonthRangePicker('#month-range-input', {
-                    dateFormat: 'YYYY-MM', // 月份格式
-                    separator: '至', // 月份范围的分隔符
-                    onMonthRangeSelect: (formattedRange) => {
-                        console.log('Selected Month Range:', formattedRange);
-                    }
+                dateFormat: 'YYYY-MM', // 月份格式
+                separator: '至', // 月份范围的分隔符
+                onMonthRangeSelect: (formattedRange) => {
+                console.log('Selected Month Range:', formattedRange);
+                }
                 });
             </div>
         </div>
@@ -194,7 +196,7 @@
             <button>选择年份</button>
             <input type="text" id="year-input" placeholder="选择年份">
             <div class="ZhenshangYin">
-                new ZhenshangyinYearPicker('#year-input', {
+                    new ZhenshangyinYearPicker('#year-input', {
                     onYearSelect: (selectedYear) => {
                         console.log('Selected Year:', selectedYear);
                     }
@@ -229,7 +231,7 @@
 
     <div class="Zhenshangyin-xiala">
         <div class="Zhenshangyin-list">
-            <button>选择年份区间</button>
+            <button>下拉选择</button>
             <input type="text" id="myInput">
             <div class="ZhenshangYin">
                 new ZhenshangyinDropdown({
@@ -252,18 +254,18 @@
                     onSelect: function (item) {
                         console.log('回调函数被调用，选中的项:', item.title);
                     },
-                    searchEnabled: true,               // 使用额外的搜索框
-                    inputSearchEnabled: true,          // 开启直接在 input 中搜索
-                    defaultSelected: '选项4',           // 设置默认选项
+                    searchEnabled: true, // 使用额外的搜索框
+                    inputSearchEnabled: true, // 开启直接在 input 中搜索
+                    defaultSelected: '选项4', // 设置默认选项
                 });
             </div>
         </div>
         <div class="Zhenshangyin-list">
-            <button>选择年份区间</button>
+            <button>下拉多选带删除</button>
             <div class="asas"></div>
             <div class="ZhenshangYin">
                 new ZhenshangyinDropdown({
-                    container: '.asas',  // 主输入框的容器，指定下拉框关联的输入框位置
+                    container: '.asas', // 主输入框的容器，指定下拉框关联的输入框位置
                     data: [
                         {
                             groupTitle: '分组1',
@@ -281,55 +283,176 @@
                         }
                     ],
                     customParams: {
-                        自定义参数1: 'param1',  // 自定义参数1，可以在其他地方使用
-                        自定义参数2: 'param2',  // 自定义参数2，存储额外信息
+                        自定义参数1: 'param1', // 自定义参数1，可以在其他地方使用
+                        自定义参数2: 'param2', // 自定义参数2，存储额外信息
                     },
                     onSelect: function (item) {
-                        console.log('当前选中的项:', item);  // 输出当前选中的项，通常是对象，包括 `title` 和额外的参数
+                        console.log('当前选中的项:', item); // 输出当前选中的项，通常是对象，包括 `title` 和额外的参数
                         const selectedTitles = this.selectedItems.map(selected => selected.title);// 获取所有选中项的标题，返回一个包含标题的数组
-                        console.log('当前选中的标题:', selectedTitles);  // 输出标题数组
-                        console.log(selectedTitles.join(', '));  // 将标题拼接为字符串显示
+                        console.log('当前选中的标题:', selectedTitles); // 输出标题数组
+                        console.log(selectedTitles.join(', ')); // 将标题拼接为字符串显示
                     },
-                    searchEnabled: true,  // 启用下拉框中的搜索框，允许用户搜索选项
-                    inputSearchEnabled: false,  // 启用主输入框内直接搜索，允许在输入框中进行实时搜索
-                    defaultSelected: ['选项4'],  // 默认选中项，支持多选时传入一个包含多个标题的数组，单选时传一个单独的标题字符串
-                    grouped: true,  // 启用分组功能，将数据分成不同的组进行展示
-                    multiSelect: true,  // 启用多选功能，允许用户同时选择多个项
+                    searchEnabled: true, // 启用下拉框中的搜索框，允许用户搜索选项
+                    inputSearchEnabled: false, // 启用主输入框内直接搜索，允许在输入框中进行实时搜索
+                    defaultSelected: ['选项4'], // 默认选中项，支持多选时传入一个包含多个标题的数组，单选时传一个单独的标题字符串
+                    grouped: true, // 启用分组功能，将数据分成不同的组进行展示
+                    multiSelect: true, // 启用多选功能，允许用户同时选择多个项
                 });
             </div>
         </div>
         <div class="Zhenshangyin-list">
-            <button>选择年份区间</button>
-            <input type="text" id="asas">
+            <button>下拉多选</button>
+            <input type="text" id="asas" placeholder="请选择">
             <div class="ZhenshangYin">
                 new ZhenshangyinDropdown({
-                    container: '#asas',  // 主输入框的容器，指定下拉框关联的输入框位置
+                    container: '#asas', // 主输入框的容器，指定下拉框关联的输入框位置
                     data: [
                         { title: '选项1', param1: '参数1', param2: '参数2' },
                         { title: '选项2', param1: '参数3', param2: '参数4' },
                         { title: '选项3', param1: '参数5', param2: '参数6' }
                     ],
                     customParams: {
-                        自定义参数1: 'param1',  // 自定义参数1，可以在其他地方使用
-                        自定义参数2: 'param2',  // 自定义参数2，存储额外信息
+                        自定义参数1: 'param1', // 自定义参数1，可以在其他地方使用
+                        自定义参数2: 'param2', // 自定义参数2，存储额外信息
                     },
                     onSelect: function (item) {
-                        console.log('当前选中的项:', item);  // 输出当前选中的项，通常是对象，包括 `title` 和额外的参数
+                        console.log('当前选中的项:', item); // 输出当前选中的项，通常是对象，包括 `title` 和额外的参数
                         const selectedTitles = this.selectedItems.map(selected => selected.title);// 获取所有选中项的标题，返回一个包含标题的数组
-                        console.log('当前选中的标题:', selectedTitles);  // 输出标题数组
-                        console.log(selectedTitles.join(', '));  // 将标题拼接为字符串显示
+                        console.log('当前选中的标题:', selectedTitles); // 输出标题数组
+                        console.log(selectedTitles.join(', ')); // 将标题拼接为字符串显示
                     },
-                    searchEnabled: true,  // 启用下拉框中的搜索框，允许用户搜索选项
-                    inputSearchEnabled: true,  // 启用主输入框内直接搜索，允许在输入框中进行实时搜索
-                    defaultSelected: ['选项4'],  // 默认选中项，支持多选时传入一个包含多个标题的数组，单选时传一个单独的标题字符串
-                    multiSelect: true,  // 启用多选功能，允许用户同时选择多个项
+                    searchEnabled: true, // 启用下拉框中的搜索框，允许用户搜索选项
+                    inputSearchEnabled: true, // 启用主输入框内直接搜索，允许在输入框中进行实时搜索
+                    defaultSelected: ['选项4'], // 默认选中项，支持多选时传入一个包含多个标题的数组，单选时传一个单独的标题字符串
+                    multiSelect: true, // 启用多选功能，允许用户同时选择多个项
                     inputMultiSelect: true
                 });
             </div>
         </div>
+        <div class="Zhenshangyin-list">
+            <button>三级联动</button>
+            <input type="text" id="locationSelector" placeholder="请选择">
+            <script>
+                new ZhenshangyinLinkage({
+                    container: "#locationSelector",
+                    data: chinaData,
+                    callback: (value) => {
+                        console.log("选择的值:", value);
+                    },
+                });
+            </script>
+            <div class="ZhenshangYin">
+                new ZhenshangyinLinkage({
+                    container: "#locationSelector",
+                    data: chinaData,
+                    callback: (value) => {
+                        console.log("选择的值:", value);
+                    },
+                });
+            </div>
+        </div>
+        <div class="Zhenshangyin-list">
+            <button>无限联动</button>
+            <input type="text" id="addressinput" placeholder="请选择">
+            <script>
+                const dataa = [
+                {
+                    name: '省1',
+                    children: [
+                        {
+                            name: '市1',
+                            children: [
+                                { name: '区1' },
+                                { name: '区2' }
+                            ]
+                        },
+                        {
+                            name: '市2',
+                            children: [
+                                { name: '区3' },
+                                { name: '区4' }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    name: '省2',
+                    children: [
+                        {
+                            name: '市3',
+                            children: [
+                                { name: '区5' },
+                                { name: '区6' }
+                            ]
+                        },
+                        {
+                            name: '市4',
+                            children: [
+                                { name: '区7' },
+                                { name: '区8' }
+                            ]
+                        }
+                    ]
+                }
+            ];
+            new ZhenshangyinLinkage({
+                container: '#addressinput',
+                data: dataa,
+                callback: (value) => {
+                    console.log('选中的地址：', value);
+                }
+            });
+            </script>
+            <div class="ZhenshangYin">
+                const dataa = [
+                    {
+                        name: '省1',
+                        children: [
+                            {
+                                name: '市1',
+                                children: [
+                                    { name: '区1' },
+                                    { name: '区2' }
+                                ]
+                            },
+                            {
+                                name: '市2',
+                                children: [
+                                    { name: '区3' },
+                                    { name: '区4' }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        name: '省2',
+                        children: [
+                            {
+                                name: '市3',
+                                children: [
+                                    { name: '区5' },
+                                    { name: '区6' }
+                                ]
+                            },
+                            {
+                                name: '市4',
+                                children: [
+                                    { name: '区7' },
+                                    { name: '区8' }
+                                ]
+                            }
+                        ]
+                    }
+                ];
+                new ZhenshangyinLinkage({
+                    container: '#addressinput',
+                    data: dataa,
+                    callback: (value) => {
+                        console.log('选中的地址：', value);
+                    }
+                });
+            </div>
+        </div>
     </div>
-    
-    
 </body>
-
 </html>

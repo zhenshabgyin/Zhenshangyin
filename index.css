@@ -9,6 +9,7 @@
     box-sizing: border-box;
     font-family: "a";
 }
+
 input {
     box-sizing: border-box;
     border: transparent;
@@ -66,7 +67,7 @@ input {
     src: url("a.ttf") format("truetype");
 }
 
-.Zhenshangyin-rom{
+.Zhenshangyin-rom {
     width: calc(100% - 40px);
     overflow: hidden;
     margin: 20px auto;
@@ -74,7 +75,8 @@ input {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 20px;
 }
-.Zhenshangyin-xiala{
+
+.Zhenshangyin-xiala {
     width: calc(100% - 40px);
     overflow: hidden;
     margin: 20px auto;
@@ -82,7 +84,8 @@ input {
     grid-template-columns: 1fr;
     gap: 20px;
 }
-.Zhenshangyin-list{
+
+.Zhenshangyin-list {
     width: 100%;
     overflow: hidden;
     padding: 20px;
@@ -90,10 +93,11 @@ input {
     border-radius: 10px;
     position: relative;
 }
-.Zhenshangyin-list button{
+
+.Zhenshangyin-list button {
     width: 100%;
     height: 50px;
-    background: #7d1ef9a8;
+    background: #f9331e96;
     border: transparent;
     border-radius: 5px;
     color: #ffffff;
@@ -101,8 +105,9 @@ input {
     text-align: center;
     cursor: pointer;
 }
+
 .asas,
-.Zhenshangyin-list input{
+.Zhenshangyin-list input {
     width: 100%;
     height: 50px;
     border: 1px solid #00000030;
@@ -113,13 +118,16 @@ input {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    gap: 10px;
 }
-.ZhenshangYin{
+
+.ZhenshangYin {
     margin-top: 20px;
     border-radius: 10px;
     position: relative;
 }
-.Zhenshangyin-riqi{
+
+.Zhenshangyin-riqi {
     width: calc(100% - 40px);
     overflow: hidden;
     margin: 20px auto;
@@ -128,7 +136,7 @@ input {
     gap: 20px;
 }
 
-.zhenshangyin-copy-button{
+.zhenshangyin-copy-button {
     font-size: 14px;
     color: #ffffff;
     position: absolute;
@@ -138,6 +146,7 @@ input {
     cursor: pointer;
     font-weight: bold;
 }
+
 .code-highlight {
     background-color: #000000;
     color: #ffffff;
@@ -177,3 +186,17 @@ input {
 .code-highlight .punctuation {
     color: #ffffff;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

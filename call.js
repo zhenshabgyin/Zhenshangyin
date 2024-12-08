@@ -116,6 +116,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+
+    
+
+
     new ZhenshangyinDropdown({
         container: '#myInput',
         data: [
@@ -136,7 +140,6 @@ document.addEventListener('DOMContentLoaded', () => {
         onSelect: function (item) {
             console.log('回调函数被调用，选中的项:', item.title);
         },
-        searchEnabled: true,               // 使用额外的搜索框
         inputSearchEnabled: true,          // 开启直接在 input 中搜索
         defaultSelected: '选项4',           // 设置默认选项
     });
@@ -247,6 +250,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         block.parentNode.insertBefore(copyButton, block);
     });
+
+
+
 
 });
 

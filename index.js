@@ -1,5 +1,3 @@
-
-
 (function () {
     const styles = `
             .zhenshangyin-custom-calendar {
@@ -350,6 +348,56 @@
                 .zhenshangyin-custom-calendar.date-range-calendar .zhenshangyin-year-picker-wrapper td{
                     padding: 10px !important;
                 }
+            }
+            .zhenshangyin-dropdown-menu {
+                position: absolute;
+                background: rgb(255, 255, 255);
+                filter: drop-shadow(0 2px 12px rgba(0, 0, 0, 0.25));
+                border-radius: 2px;
+                z-index: 9999999999999999999999999999999;
+                opacity: 0;
+                transition: opacity 0.3s ease, transform 0.3s ease;
+                display: flex;
+            }
+            .zhenshangyin-dropdown-show{
+                opacity: 1;
+            }
+            .zhenshangyin-dropdown-down{
+                transform: translateY(5px);
+            }
+            .zhenshangyin-dropdown-up{
+                transform: translateY(-5px);
+            }
+
+            .zhenshangyin-dropdown-list{
+                width: max-content;
+                overflow: hidden;
+                padding: 5px 0;
+                border-left: 1px solid #00000010;
+                max-height: 250px;
+                overflow: auto;
+            }
+            .zhenshangyin-dropdown-list::-webkit-scrollbar {
+                width: 0px;
+            }
+
+            .zhenshangyin-dropdown-list:nth-child(1){
+                border: transparent;
+            }
+            .zhenshangyin-dropdown-list li{
+                width: 120px;
+                padding: 8px 15px;
+                cursor: pointer;
+                font-size: 12px;
+                color: #868686;
+            }
+            .zhenshangyin-dropdown-list li:hover{
+                background: #f0f0f0;
+                color: rgb(64, 158, 255);
+            }
+            .zhenshangyin-dropdown-list li.zhenshangyin-dropdown-selected{
+                background: #f0f0f0;
+                color: rgb(64, 158, 255);
             }
         `;
     const styleElement = document.createElement("style");
@@ -1523,7 +1571,7 @@ class ZhenshangyinDateRangePicker {
 
                 const formattedStartDate = this.formatDate(this.startDate);
                 const formattedEndDate = this.formatDate(this.endDate);
-                const formattedRange = `${formattedStartDate}${this.separator}${formattedEndDate}`; 
+                const formattedRange = `${formattedStartDate}${this.separator}${formattedEndDate}`;
                 this.dateInput.value = formattedRange;
                 this.picker.classList.remove('zhenshangyin-custom-show');
                 this.picker.classList.remove('zhenshangyin-custom-down');
@@ -2704,3 +2752,124 @@ class ZhenshangyinDropdown {
     }
 }
 
+
+
+class ZhenshangyinLinkage {
+    constructor(options) {
+        this.inputElement = document.querySelector(options.container);
+        this.data = options.data;
+        this.callback = options.callback || function () { };
+        this.menu = null;
+        this.init();
+    }
+    init() {
+        if (!this.inputElement || this.inputElement.tagName.toLowerCase() !== "input") {
+            return;
+        }
+        this.bindEvents();
+    }
+    createDropdownMenu() {
+        this.menu = document.createElement("div");
+        this.menu.className = "zhenshangyin-dropdown-menu";
+        this.menu.innerHTML = `
+            <ul class="zhenshangyin-dropdown-list"></ul>
+        `;
+        document.body.appendChild(this.menu);
+    }
+    bindEvents() {
+        this.inputElement.addEventListener("click", () => {
+            if (this.menu) {
+                return;
+            }
+            this.createDropdownMenu();
+            const list = this.menu.querySelector(".zhenshangyin-dropdown-list");
+            requestAnimationFrame(() => {
+                const rect = this.inputElement.getBoundingClientRect();
+                const rectHeight = this.inputElement.offsetHeight;
+                const spaceBelow = window.innerHeight - rect.bottom;
+                const distanceFromTop = rect.top + window.scrollY;
+                const pickerHeight = this.menu.offsetHeight;
+                this.menu.classList.add('zhenshangyin-dropdown-show');
+                this.menu.style.left = `${rect.left + window.scrollX}px`;
+                if (spaceBelow < pickerHeight && distanceFromTop < pickerHeight) {
+                    this.menu.style.top = `${distanceFromTop + rectHeight}px`;
+                    this.menu.classList.add('zhenshangyin-dropdown-down');
+                } else if (spaceBelow < pickerHeight) {
+                    this.menu.style.top = `${distanceFromTop - pickerHeight}px`;
+                    this.menu.classList.add('zhenshangyin-dropdown-up');
+                } else {
+                    this.menu.style.top = `${distanceFromTop + rectHeight}px`;
+                    this.menu.classList.add('zhenshangyin-dropdown-down');
+                }
+            });
+            this.populateList(this.data, list);
+            this.bindListEvents([list]);
+        });
+        document.addEventListener("click", (event) => {
+            if (this.menu && !this.menu.contains(event.target) && event.target !== this.inputElement) {
+                this.closeDropdown();
+            }
+        });
+    }
+    bindListEvents(lists) {
+        lists.forEach((list, index) => {
+            if (list.dataset.bound) return;
+            list.dataset.bound = true;
+            list.addEventListener("click", (event) => {
+                const target = event.target.closest("li");
+                if (!target) return;
+
+                [...list.children].forEach((item) => item.classList.remove("zhenshangyin-dropdown-selected"));
+                target.classList.add("zhenshangyin-dropdown-selected");
+                const subData = target.dataset.children ? JSON.parse(target.dataset.children) : [];
+                if (subData.length > 0) {
+                    let nextList = this.menu.querySelector(`.zhenshangyin-dropdown-list:nth-child(${index + 2})`);
+                    if (!nextList) {
+                        nextList = document.createElement("ul");
+                        nextList.className = "zhenshangyin-dropdown-list";
+                        this.menu.appendChild(nextList);
+                    }
+                    this.populateList(subData, nextList);
+                    this.bindListEvents([...lists, nextList]);
+                } else {
+                    this.closeDropdown();
+                }
+                this.updateSelection(index, target.innerText);
+            });
+        });
+    }
+    populateList(data, listElement) {
+        listElement.innerHTML = "";
+        listElement.innerHTML = data
+            .map(
+                (item) =>
+                    `<li data-children='${item.children ? JSON.stringify(item.children) : ''}'>${item.name}</li>`
+            )
+            .join('');
+    }
+    updateSelection(level, value) {
+        const currentValue = this.inputElement.value.split(" / ").slice(0, level);
+        currentValue[level] = value;
+        this.inputElement.value = currentValue.join(" / ");
+        const lists = this.menu.querySelectorAll(".zhenshangyin-dropdown-list");
+        for (let i = 0; i <= level; i++) {
+            const list = lists[i];
+            [...list.children].forEach((item) => {
+                item.classList.toggle("zhenshangyin-dropdown-selected", item.innerText === currentValue[i]);
+            });
+        }
+        for (let i = level + 1; i < lists.length; i++) {
+            [...lists[i].children].forEach((item) => item.classList.remove("zhenshangyin-dropdown-selected"));
+        }
+        this.callback(this.inputElement.value);
+    }
+    closeDropdown() {
+        if (this.menu) {
+            this.menu.classList.remove('zhenshangyin-dropdown-show');
+            setTimeout(() => {
+                this.menu.remove();
+                this.menu = null;
+            }, 300);
+        }
+    }
+}
