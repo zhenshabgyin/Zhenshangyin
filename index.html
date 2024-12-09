@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zhenshangyin</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <script src="map.js"></script>
-    <script src="index.js"></script>
     <link rel="stylesheet" href="index.css">
 </head>
 
@@ -33,729 +31,803 @@
         </div>
 
         <div class="MainRight">
-            <div class="MainRightList grid">
+            <div class="MainRightList">
                 <h2>Message 消息提示</h2>
-                <ul>
+                <ul class="grid4">
                     <li>
-                        <button id="successButtona">显示成功消息</button>
-                        <script>
-                            document.getElementById('successButtona').addEventListener('click', function () {
-                                new ZhenshangyinMessage({ message: '成功了', type: 'success', duration: 2000 });
-                            });
-                        </script>
-                        <div class="MainRightListPor">
-                            <div class="ZhenshangYin">
-                                new ZhenshangyinMessage({
-                                    message: '成功了',
-                                    type: 'success',
-                                    duration: 2000
-                                });
-                            </div>
-                        </div>
+                        <button id="showSuccessMessageA">显示成功消息</button>
                     </li>
                     <li>
-                        <button id="infoButtona">显示警告消息</button>
-                        <script>
-                            document.getElementById('infoButtona').addEventListener('click', function () {
-                                new ZhenshangyinMessage({ message: '这是一个警告', type: 'warning', duration: 2000 });
-                            });
-                        </script>
-                        <div class="MainRightListPor">
-                            <div class="ZhenshangYin">
-                                new ZhenshangyinMessage({
-                                    message: '这是一个警告',
-                                    type: 'warning',
-                                    duration: 2000
-                                });
-                            </div>
-                        </div>
+                        <button id="showWarningMessageA">显示警告消息</button>
                     </li>
                     <li>
-                        <button id="errorButtona">显示信息消息</button>
-                        <script>
-                            document.getElementById('errorButtona').addEventListener('click', function () {
-                                new ZhenshangyinMessage({ message: '这是一个信息', type: 'info', duration: 2000 });
-                            });
-                        </script>
-                        <div class="MainRightListPor">
-                            <div class="ZhenshangYin">
-                                new ZhenshangyinMessage({
-                                    message: '这是一个信息',
-                                    type: 'info',
-                                    duration: 2000
-                                });
-                            </div>
-                        </div>
+                        <button id="showInfoMessageA">显示信息消息</button>
                     </li>
                     <li>
-                        <button id="warningButtona">显示错误消息</button>
-                        <script>
-                            document.getElementById('warningButtona').addEventListener('click', function () {
-                                new ZhenshangyinMessage({ message: '出错了', type: 'error', duration: 2000 });
-                            });
-                        </script>
-                        <div class="MainRightListPor">
-                            <div class="ZhenshangYin">
-                                new ZhenshangyinMessage({
-                                    message: '出错了',
-                                    type: 'error',
-                                    duration: 2000
-                                });
-                            </div>
-                        </div>
+                        <button id="showErrorMessageA">显示错误消息</button>
                     </li>
                 </ul>
+                <div class="table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th><strong>参数</strong></th>
+                                <th><strong>类型</strong></th>
+                                <th><strong>默认值</strong></th>
+                                <th><strong>说明</strong></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>message</code></td>
+                                <td><code>string</code></td>
+                                <td>无</td>
+                                <td>通知显示的主要内容。</td>
+                            </tr>
+                            <tr>
+                                <td><code>type</code></td>
+                                <td><code>string</code></td>
+                                <td><code>'info'</code></td>
+                                <td>通知的类型，决定通知的背景颜色和图标。可选值：<code>'info'</code>、<code>'success'</code>、<code>'warning'</code>、<code>'error'</code>。
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><code>duration</code></td>
+                                <td><code>number</code></td>
+                                <td><code>2000</code></td>
+                                <td>通知显示的时长（以毫秒为单位）。通知在此时间后自动消失，若为 <code>0</code> 或未指定则通知永不消失。</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-            <div class="MainRightList grid">
+            <div class="MainRightList">
                 <h2>Notification 通知</h2>
-                <ul>
+                <ul class="grid4">
                     <li>
-                        <button id="successButton">显示成功消息</button>
-                        <script>
-                            document.getElementById('successButton').addEventListener('click', function () {
-                                new ZhenshangyinNotification({ title: '提示', message: '成功了', type: 'success', duration: 2000 });
-                            });
-                        </script>
-                        <div class="MainRightListPor">
-                            <div class="ZhenshangYin">
-                                new ZhenshangyinNotification({
-                                    title: '提示',
-                                    message: '成功了',
-                                    type: 'success',
-                                    duration: 2000
-                                });
-                            </div>
-                        </div>
+                        <button id="showSuccessNotification">显示成功消息</button>
                     </li>
                     <li>
-                        <button id="warningButton">显示警告消息</button>
-                        <script>
-                            document.getElementById('warningButton').addEventListener('click', function () {
-                                new ZhenshangyinNotification({ title: '提示', message: '这是一个警告', type: 'warning', duration: 2000 });
-                            });
-                        </script>
-                        <div class="MainRightListPor">
-                            <div class="ZhenshangYin">
-                                new ZhenshangyinNotification({
-                                    title: '提示',
-                                    message: '这是一个警告',
-                                    type: 'warning',
-                                    duration: 2000
-                                });
-                            </div>
-                        </div>
+                        <button id="showWarningNotification">显示警告消息</button>
                     </li>
                     <li>
-                        <button id="infoButton">显示信息消息</button>
-                        <script>
-                            document.getElementById('infoButton').addEventListener('click', function () {
-                                new ZhenshangyinNotification({ title: '提示', message: '这是一个信息', type: 'info', duration: 2000 });
-                            });
-                        </script>
-                        <div class="MainRightListPor">
-                            <div class="ZhenshangYin">
-                                new ZhenshangyinNotification({
-                                    title: '提示',
-                                    message: '这是一个信息',
-                                    type: 'info',
-                                    duration: 2000
-                                });
-                            </div>
-                        </div>
+                        <button id="showInfoNotification">显示信息消息</button>
                     </li>
                     <li>
-                        <button id="errorButton">显示错误消息</button>
-                        <script>
-                            document.getElementById('errorButton').addEventListener('click', function () {
-                                new ZhenshangyinNotification({ title: '提示', message: '出错了', type: 'error', duration: 2000 });
-                            });
-                        </script>
-                        <div class="MainRightListPor">
-                            <div class="ZhenshangYin">
-                                new ZhenshangyinNotification({
-                                    title: '提示',
-                                    message: '出错了',
-                                    type: 'error',
-                                    duration: 2000
-                                });
-                            </div>
-                        </div>
+                        <button id="showErrorNotification">显示错误消息</button>
                     </li>
                 </ul>
+                <div class="table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th><strong>参数</strong></th>
+                                <th><strong>类型</strong></th>
+                                <th><strong>默认值</strong></th>
+                                <th><strong>说明</strong></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>title</code></td>
+                                <td><code>string</code></td>
+                                <td>无</td>
+                                <td>通知的标题文本，显示在通知的顶部部分。</td>
+                            </tr>
+                            <tr>
+                                <td><code>message</code></td>
+                                <td><code>string</code></td>
+                                <td>无</td>
+                                <td>通知的主要内容，显示在通知的正文部分。</td>
+                            </tr>
+                            <tr>
+                                <td><code>type</code></td>
+                                <td><code>string</code></td>
+                                <td><code>'info'</code></td>
+                                <td>通知的类型，决定通知的背景颜色和图标。可选值：<code>'info'</code>、<code>'success'</code>、<code>'warning'</code>、<code>'error'</code>。
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><code>duration</code></td>
+                                <td><code>number</code></td>
+                                <td><code>2000</code></td>
+                                <td>通知显示的时长（以毫秒为单位），到达此时间后通知自动消失。若为 <code>0</code> 或未指定则通知永不消失。</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-            <div class="MainRightList grid">
+            <div class="MainRightList">
                 <h2>DatePicker 日期选择器</h2>
-                <ul>
+                <ul class="grid2">
                     <li>
                         <h3>选择日期</h3>
-                        <input type="text" id="date-shijian" placeholder="选择日期">
-                        <script>
-                            new ZhenshangyinDatePicker('#date-shijian', {
-                                dateFormat: 'YYYY-MM-DD',
-                                onDateSelect: (formattedDate) => {
-                                    console.log('Selected Date and Time:', formattedDate);
-                                }
-                            });
-                        </script>
-                        <div class="MainRightListPor">
-                            <div class="ZhenshangYin">
-                                new ZhenshangyinDatePicker('#date-shijian', {
-                                    dateFormat: 'YYYY-MM-DD', // 日期格式
-                                        onDateSelect: (formattedDate) => {
-                                    console.log('Selected Date and Time:', formattedDate);
-                                    }
-                                });
-                            </div>
-                        </div>
+                        <input type="text" id="datePickerSimple" placeholder="选择日期">
                     </li>
                     <li>
                         <h3>选择日期带时间</h3>
-                        <input type="text" id="date-inputa" placeholder="选择日期带时间">
-                        <script>
-                            new ZhenshangyinDatePicker('#date-inputa', {
-                                dateFormat: 'YYYY-MM-DD HH:mm:ss',
-                                onDateSelect: (formattedDate) => {
-                                    console.log('Selected Date and Time:', formattedDate);
-                                }
-                            });
-                        </script>
-                        <div class="MainRightListPor">
-                            <div class="ZhenshangYin">
-                                new ZhenshangyinDatePicker('#date-inputa', {
-                                    dateFormat: 'YYYY-MM-DD HH:mm:ss', // 日期时间格式
-                                    onDateSelect: (formattedDate) => {
-                                        console.log('Selected Date and Time:', formattedDate);
-                                    }
-                                });
-                            </div>
-                        </div>
+                        <input type="text" id="datePickerWithTime" placeholder="选择日期带时间">
                     </li>
+                </ul>
+                <div class="table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>参数</th>
+                                <th>类型</th>
+                                <th>默认值</th>
+                                <th>说明</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>inputSelector</code></td>
+                                <td><code>string</code></td>
+                                <td><code>null</code></td>
+                                <td>选择日期输入框的 CSS 选择器。</td>
+                            </tr>
+                            <tr>
+                                <td><code>dateFormat</code></td>
+                                <td><code>string</code></td>
+                                <td><code>'YYYY-MM-DD'</code></td>
+                                <td>日期格式，支持多种格式，如：<code>'YYYY-MM-DD'</code>, <code>'MM/DD/YYYY'</code>,
+                                    <code>'DD/MM/YYYY'</code>等。
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><code>onDateSelect</code></td>
+                                <td><code>function</code></td>
+                                <td><code>() => {}</code></td>
+                                <td>日期选择后的回调函数。</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <ul class="grid2">
                     <li>
                         <h3>选择日期区间</h3>
-                        <input type="text" id="date-range-input" placeholder="选择日期区间">
-                        <script>
-                            new ZhenshangyinDateRangePicker('#date-range-input', {
-                                dateFormat: 'YYYY/MM/DD',
-                                separator: '至',
-                                onDateRangeSelect: (formattedRange) => {
-                                    console.log('Selected Date Range:', formattedRange);
-                                }
-                            });
-                        </script>
-                        <div class="MainRightListPor">
-                            <div class="ZhenshangYin">
-                                new ZhenshangyinDateRangePicker('#date-range-input', {
-                                    dateFormat: 'YYYY/MM/DD', // 日期格式
-                                    separator: '至', // 日期范围的分隔符
-                                    onDateRangeSelect: (formattedRange) => {
-                                        console.log('Selected Date Range:', formattedRange);
-                                    }
-                                });
-                            </div>
-                        </div>
+                        <input type="text" id="dateRangePickerSimple" placeholder="选择日期区间">
                     </li>
                     <li>
                         <h3>选择日期区间带时间</h3>
-                        <input type="text" id="date-range-inputs" placeholder="选择日期区间带时间">
-                        <script>
-                            new ZhenshangyinDateRangePicker('#date-range-inputs', {
-                                dateFormat: 'YYYY-MM-DD HH:mm:ss',
-                                separator: '至',
-                                onDateRangeSelect: (formattedRange) => {
-                                    console.log('Selected Date Range:', formattedRange);
-                                }
-                            });
-                        </script>
-                        <div class="MainRightListPor">
-                            <div class="ZhenshangYin">
-                                new ZhenshangyinDateRangePicker('#date-range-inputs', {
-                                    dateFormat: 'YYYY-MM-DD HH:mm:ss', // 日期时间格式
-                                    separator: '至', // 日期范围的分隔符
-                                    onDateRangeSelect: (formattedRange) => {
-                                        console.log('Selected Date Range:', formattedRange);
-                                    }
-                                });
-                            </div>
-                        </div>
+                        <input type="text" id="dateRangePickerWithTime" placeholder="选择日期区间带时间">
                     </li>
+                </ul>
+                <div class="table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>参数</th>
+                                <th>类型</th>
+                                <th>默认值</th>
+                                <th>说明</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>inputSelector</code></td>
+                                <td><code>string</code></td>
+                                <td>-</td>
+                                <td>输入框的选择器字符串</td>
+                            </tr>
+                            <tr>
+                                <td><code>dateFormat</code></td>
+                                <td><code>string</code></td>
+                                <td><code>'YYYY-MM-DD'</code></td>
+                                <td>日期格式，支持多种格式，如：'YYYY-MM-DD', 'MM/DD/YYYY', 'DD/MM/YYYY'等。</td>
+                            </tr>
+                            <tr>
+                                <td><code>onDateRangeSelect</code></td>
+                                <td><code>function</code></td>
+                                <td><code>() => {}</code></td>
+                                <td>日期范围选择后的回调函数，默认为空函数</td>
+                            </tr>
+                            <tr>
+                                <td><code>separator</code></td>
+                                <td><code>string</code></td>
+                                <td><code>' - '</code></td>
+                                <td>日期范围分隔符，默认为 <code>' - '</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <ul class="grid2">
                     <li>
                         <h3>选择月份</h3>
-                        <input type="text" id="month-input" placeholder="选择月份">
-                        <script>
-                            new ZhenshangyinMonthPicker('#month-input', {
-                                dateFormat: 'YYYY-MM',
-                                onMonthSelect: (selectedMonth) => {
-                                    console.log('Selected Month:', selectedMonth);
-                                }
-                            });
-
-                        </script>
-                        <div class="MainRightListPor">
-                            <div class="ZhenshangYin">
-                                new ZhenshangyinMonthPicker('#month-input', {
-                                    dateFormat: 'YYYY-MM', // 月份格式
-                                    onMonthSelect: (selectedMonth) => {
-                                        console.log('Selected Month:', selectedMonth);
-                                    }
-                                });
-
-                            </div>
-                        </div>
+                        <input type="text" id="monthPickerSimple" placeholder="选择月份">
                     </li>
                     <li>
                         <h3>选择多个月份</h3>
-                        <input type="text" id="multi-month-input" placeholder="选择多个月份">
-                        <script>
-                            new ZhenshangyinMonthPicker('#multi-month-input', {
-                                dateFormat: 'YYYY-MM', 
-                                multiSelect: true,
-                                onMonthSelect: (selectedMonths) => {
-                                    console.log('Selected Months:', selectedMonths);
-                                }
-                            });
-                        </script>
-                        <div class="MainRightListPor">
-                            <div class="ZhenshangYin">
-                                new ZhenshangyinMonthPicker('#multi-month-input', {
-                                    dateFormat: 'YYYY-MM', // 月份格式
-                                    multiSelect: true, // 启用多选
-                                    onMonthSelect: (selectedMonths) => {
-                                        console.log('Selected Months:', selectedMonths);
-                                    }
-                                });
-                            </div>
-                        </div>
+                        <input type="text" id="multiMonthPicker" placeholder="选择多个月份">
                     </li>
+                </ul>
+                <div class="table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>参数</th>
+                                <th>类型</th>
+                                <th>默认值</th>
+                                <th>说明</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>inputSelector</code></td>
+                                <td><code>string</code></td>
+                                <td>-</td>
+                                <td>输入框的选择器字符串</td>
+                            </tr>
+                            <tr>
+                                <td><code>dateFormat</code></td>
+                                <td><code>string</code></td>
+                                <td><code>'YYYY-MM'</code></td>
+                                <td>日期格式，支持多种格式，如：'YYYY-MM-DD', 'MM/DD/YYYY', 'DD/MM/YYYY'等。</td>
+                            </tr>
+                            <tr>
+                                <td><code>onMonthSelect</code></td>
+                                <td><code>function</code></td>
+                                <td><code>() => {}</code></td>
+                                <td>月份选择后的回调函数，默认为空函数</td>
+                            </tr>
+                            <tr>
+                                <td><code>multiSelect</code></td>
+                                <td><code>boolean</code></td>
+                                <td><code>false</code></td>
+                                <td>是否允许多选月份，默认为 <code>false</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <ul>
                     <li>
                         <h3>选择月份区间</h3>
-                        <input type="text" id="month-range-input" placeholder="选择月份区间">
-                        <script>
-                            new ZhenshangyinMonthRangePicker('#month-range-input', {
-                                dateFormat: 'YYYY-MM',
-                                separator: '至',
-                                onMonthRangeSelect: (formattedRange) => {
-                                    console.log('Selected Month Range:', formattedRange);
-                                }
-                            });
-                        </script>
-                        <div class="MainRightListPor">
-                            <div class="ZhenshangYin">
-                                new ZhenshangyinMonthRangePicker('#month-range-input', {
-                                    dateFormat: 'YYYY-MM', // 月份格式
-                                    separator: '至', // 月份范围的分隔符
-                                    onMonthRangeSelect: (formattedRange) => {
-                                        console.log('Selected Month Range:', formattedRange);
-                                    }
-                                });
-                            </div>
-                        </div>
+                        <input type="text" id="monthRangePicker" placeholder="选择月份区间">
                     </li>
+                </ul>
+                <div class="table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>参数</th>
+                                <th>类型</th>
+                                <th>默认值</th>
+                                <th>说明</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>inputSelector</code></td>
+                                <td><code>string</code></td>
+                                <td>无</td>
+                                <td>输入元素的选择器，用于绑定日期范围选择器</td>
+                            </tr>
+                            <tr>
+                                <td><code>dateFormat</code></td>
+                                <td><code>string</code></td>
+                                <td><code>'YYYY-MM'</code></td>
+                                <td>日期格式，支持多种格式，如：'YYYY-MM-DD', 'MM/DD/YYYY', 'DD/MM/YYYY'等。</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>onMonthRangeSelect</code></td>
+                                <td><code>function</code></td>
+                                <td>() => {}</td>
+                                <td>当月份范围选择完成后触发的回调函数</td>
+                            </tr>
+                            <tr>
+                                <td><code>separator</code></td>
+                                <td><code>string</code></td>
+                                <td><code>' - '</code></td>
+                                <td>开始月份和结束月份之间的分隔符，默认为 <code>' - '</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <ul class="grid2">
                     <li>
                         <h3>选择年份</h3>
-                        <input type="text" id="year-input" placeholder="选择年份">
-                        <script>
-                            new ZhenshangyinYearPicker('#year-input', {
-                                onYearSelect: (selectedYear) => {
-                                    console.log('Selected Year:', selectedYear);
-                                }
-                            });
-                        </script>
-                        <div class="MainRightListPor">
-                            <div class="ZhenshangYin">
-                                new ZhenshangyinYearPicker('#year-input', {
-                                    onYearSelect: (selectedYear) => {
-                                        console.log('Selected Year:', selectedYear);
-                                    }
-                                });
-                            </div>
-                        </div>
+                        <input type="text" id="yearPickerSimple" placeholder="选择年份">
                     </li>
                     <li>
                         <h3>选择多个年份</h3>
-                        <input type="text" id="multi-year-input" placeholder="选择多个年份">
-                        <script>
-                            new ZhenshangyinYearPicker('#multi-year-input', {
-                                multiSelect: true,
-                                onYearSelect: (selectedYears) => {
-                                    console.log('Selected Years:', selectedYears);
-                                }
-                            });
-                        </script>
-                        <div class="MainRightListPor">
-                            <div class="ZhenshangYin">
-                                new ZhenshangyinYearPicker('#multi-year-input', {
-                                    multiSelect: true, // 启用多选
-                                    onYearSelect: (selectedYears) => {
-                                        console.log('Selected Years:', selectedYears);
-                                    }
-                                });
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <h3>选择年份区间</h3>
-                        <input type="text" id="year-range-input" placeholder="选择年份区间">
-                        <script>
-                            new ZhenshangyinYearRangePicker('#year-range-input', {
-                                separator: '至',
-                                onYearRangeSelect: (formattedRange) => {
-                                    console.log('Selected Year Range:', formattedRange);
-                                }
-                            });
-                        </script>
-                        <div class="MainRightListPor">
-                            <div class="ZhenshangYin">
-                                new ZhenshangyinYearRangePicker('#year-range-input', {
-                                    separator: '至', // 年份范围的分隔符
-                                    onYearRangeSelect: (formattedRange) => {
-                                        console.log('Selected Year Range:', formattedRange);
-                                    }
-                                });
-                            </div>
-                        </div>
+                        <input type="text" id="multiYearPicker" placeholder="选择多个年份">
                     </li>
                 </ul>
+                <div class="table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>参数</th>
+                                <th>类型</th>
+                                <th>默认值</th>
+                                <th>说明</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>inputSelector</code></td>
+                                <td><code>string</code></td>
+                                <td>无</td>
+                                <td>输入元素的选择器，用于绑定年份选择器</td>
+                            </tr>
+                            <tr>
+                                <td><code>onYearSelect</code></td>
+                                <td><code>function</code></td>
+                                <td><code>() =&gt; {}</code></td>
+                                <td>当年份被选择时触发的回调函数</td>
+                            </tr>
+                            <tr>
+                                <td><code>multiSelect</code></td>
+                                <td><code>boolean</code></td>
+                                <td><code>false</code></td>
+                                <td>是否允许多选年份，默认为 <code>false</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <ul>
+                    <li>
+                        <h3>选择年份区间</h3>
+                        <input type="text" id="yearRangePicker" placeholder="选择年份区间">
+                    </li>
+                </ul>
+                <div class="table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>参数</th>
+                                <th>类型</th>
+                                <th>默认值</th>
+                                <th>说明</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>inputSelector</code></td>
+                                <td><code>string</code></td>
+                                <td><code>-</code></td>
+                                <td>选择器，用于选择输入框的 DOM 元素。</td>
+                            </tr>
+                            <tr>
+                                <td><code>onYearRangeSelect</code></td>
+                                <td><code>function</code></td>
+                                <td><code>() => {}</code></td>
+                                <td>选择年份范围后触发的回调函数。</td>
+                            </tr>
+                            <tr>
+                                <td><code>separator</code></td>
+                                <td><code>string</code></td>
+                                <td><code>' - '</code></td>
+                                <td>起始年份和结束年份之间的分隔符。</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
             <div class="MainRightList">
                 <h2>Select 选择器</h2>
-                <ul>
+                <ul class="grid3">
                     <li>
                         <h3>下拉选择</h3>
-                        <input type="text" id="myInput">
-                        <script>
-                            new ZhenshangyinDropdown({
-                                container: '#myInput',
-                                data: [
-                                    { title: '选项1', param1: '参数1', param2: '参数2' },
-                                    { title: '选项2', param1: '参数3', param2: '参数4' },
-                                    { title: '选项3', param1: '参数5', param2: '参数6' },
-                                    { title: '选项4', param1: '参数1', param2: '参数2' },
-                                    { title: '选项5', param1: '参数3', param2: '参数4' },
-                                    { title: '选项6', param1: '参数5', param2: '参数6' },
-                                    { title: '选项7', param1: '参数1', param2: '参数2' },
-                                    { title: '选项8', param1: '参数3', param2: '参数4' },
-                                    { title: '选项9', param1: '参数5', param2: '参数6' }
-                                ],
-                                customParams: {
-                                    自定义参数1: 'param1',
-                                    自定义参数2: 'param2'
-                                },
-                                onSelect: function (item) {
-                                    console.log('回调函数被调用，选中的项:', item.title);
-                                },
-                                inputSearchEnabled: true,  
-                                defaultSelected: '选项4', 
-                            });
-                        </script>
-                        <div class="MainRightListPor">
-                            <div class="ZhenshangYin">
-                                new ZhenshangyinDropdown({
-                                    container: '#myInput',
-                                    data: [
-                                        { title: '选项1', param1: '参数1', param2: '参数2' },
-                                        { title: '选项2', param1: '参数3', param2: '参数4' },
-                                        { title: '选项3', param1: '参数5', param2: '参数6' },
-                                        { title: '选项4', param1: '参数1', param2: '参数2' },
-                                        { title: '选项5', param1: '参数3', param2: '参数4' },
-                                        { title: '选项6', param1: '参数5', param2: '参数6' },
-                                        { title: '选项7', param1: '参数1', param2: '参数2' },
-                                        { title: '选项8', param1: '参数3', param2: '参数4' },
-                                        { title: '选项9', param1: '参数5', param2: '参数6' }
-                                    ],
-                                    customParams: {
-                                        自定义参数1: 'param1',
-                                        自定义参数2: 'param2'
-                                    },
-                                    onSelect: function (item) {
-                                        console.log('回调函数被调用，选中的项:', item.title);
-                                    },
-                                    searchEnabled: true, // 使用额外的搜索框
-                                    inputSearchEnabled: true, // 开启直接在 input 中搜索
-                                    defaultSelected: '选项4', // 设置默认选项
-                                });
-                            </div>
-                        </div>
+                        <input type="text" id="dropdownSingleSelect">
                     </li>
                     <li>
                         <h3>下拉多选带删除</h3>
-                        <div id="myInputdel"></div>
-                        <script>
-                            new ZhenshangyinDropdown({
-                                container: '#myInputdel',  // 主输入框的容器，指定下拉框关联的输入框位置
-                                data: [
-                                    {
-                                        groupTitle: '分组1',
-                                        children: [
-                                            { title: '选项1', param1: '参数1', param2: '参数2' },
-                                            { title: '选项2', param1: '参数3', param2: '参数4' },
-                                        ]
-                                    },
-                                    {
-                                        groupTitle: '分组2',
-                                        children: [
-                                            { title: '选项3', param1: '参数5', param2: '参数6' },
-                                            { title: '选项4', param1: '参数7', param2: '参数8' },
-                                        ]
-                                    }
-                                ],
-                                customParams: {
-                                    自定义参数1: 'param1', 
-                                    自定义参数2: 'param2', 
-                                },
-                                onSelect: function (item) {
-                                    console.log('当前选中的项:', item); 
-                                    const selectedTitles = this.selectedItems.map(selected => selected.title);
-                                    console.log('当前选中的标题:', selectedTitles);
-                                    console.log(selectedTitles.join(', ')); 
-                                },
-                                searchEnabled: true, 
-                                inputSearchEnabled: false,
-                                defaultSelected: ['选项4'], 
-                                grouped: true,
-                                multiSelect: true,
-                            });
-                        </script>
-                        <div class="MainRightListPor">
-                            <div class="ZhenshangYin">
-                                new ZhenshangyinDropdown({
-                                    container: '.asas', // 主输入框的容器，指定下拉框关联的输入框位置
-                                    data: [
-                                        {
-                                            groupTitle: '分组1',
-                                            children: [
-                                                { title: '选项1', param1: '参数1', param2: '参数2' },
-                                                { title: '选项2', param1: '参数3', param2: '参数4' },
-                                            ]
-                                        },
-                                        {
-                                            groupTitle: '分组2',
-                                            children: [
-                                                { title: '选项3', param1: '参数5', param2: '参数6' },
-                                                { title: '选项4', param1: '参数7', param2: '参数8' },
-                                            ]
-                                        }
-                                    ],
-                                    customParams: {
-                                        自定义参数1: 'param1', // 自定义参数1，可以在其他地方使用
-                                        自定义参数2: 'param2', // 自定义参数2，存储额外信息
-                                    },
-                                    onSelect: function (item) {
-                                        console.log('当前选中的项:', item); // 输出当前选中的项，通常是对象，包括 `title` 和额外的参数
-                                        const selectedTitles = this.selectedItems.map(selected => selected.title);//
-                                        获取所有选中项的标题，返回一个包含标题的数组
-                                        console.log('当前选中的标题:', selectedTitles); // 输出标题数组
-                                        console.log(selectedTitles.join(', ')); // 将标题拼接为字符串显示
-                                    },
-                                    searchEnabled: true, // 启用下拉框中的搜索框，允许用户搜索选项
-                                    inputSearchEnabled: false, // 启用主输入框内直接搜索，允许在输入框中进行实时搜索
-                                    defaultSelected: ['选项4'], // 默认选中项，支持多选时传入一个包含多个标题的数组，单选时传一个单独的标题字符串
-                                    grouped: true, // 启用分组功能，将数据分成不同的组进行展示
-                                    multiSelect: true, // 启用多选功能，允许用户同时选择多个项
-                                });
-                            </div>
-                        </div>
+                        <div id="dropdownMultiSelectWithDelete"></div>
                     </li>
                     <li>
                         <h3>下拉多选</h3>
-                        <input type="text" id="asas" placeholder="请选择">
-                        <script>
-                            new ZhenshangyinDropdown({
-                                container: '#asas',
-
-                                data: [
-                                    { title: '选项1', param1: '参数1', param2: '参数2' },
-                                    { title: '选项2', param1: '参数3', param2: '参数4' },
-                                    { title: '选项3', param1: '参数5', param2: '参数6' }
-                                ],
-
-                                customParams: {
-                                    自定义参数1: 'param1', 
-                                    自定义参数2: 'param2',
-                                },
-                                onSelect: function (item) {
-                                    console.log('当前选中的项:', item);
-                                    const selectedTitles = this.selectedItems.map(selected => selected.title);
-                                    console.log('当前选中的标题:', selectedTitles);
-                                    console.log(selectedTitles.join(', '));
-                                },
-                                searchEnabled: true,
-                                inputSearchEnabled: true,
-                                defaultSelected: ['选项4'],
-                                multiSelect: true,
-                                inputMultiSelect: true
-                            });
-                        </script>
-                        <div class="MainRightListPor">
-                            <div class="ZhenshangYin">
-                                new ZhenshangyinDropdown({
-                                    container: '#asas', // 主输入框的容器，指定下拉框关联的输入框位置
-
-                                    data: [
-                                        { title: '选项1', param1: '参数1', param2: '参数2' },
-                                        { title: '选项2', param1: '参数3', param2: '参数4' },
-                                        { title: '选项3', param1: '参数5', param2: '参数6' }
-                                    ],
-
-                                    customParams: {
-                                        自定义参数1: 'param1', // 自定义参数1，可以在其他地方使用
-                                        自定义参数2: 'param2', // 自定义参数2，存储额外信息
-                                    },
-                                    onSelect: function (item) {
-                                        console.log('当前选中的项:', item); // 输出当前选中的项，通常是对象，包括 `title` 和额外的参数
-                                        const selectedTitles = this.selectedItems.map(selected => selected.title);//
-                                        获取所有选中项的标题，返回一个包含标题的数组
-                                        console.log('当前选中的标题:', selectedTitles); // 输出标题数组
-                                        console.log(selectedTitles.join(', ')); // 将标题拼接为字符串显示
-                                    },
-                                    searchEnabled: true, // 启用下拉框中的搜索框，允许用户搜索选项
-                                    inputSearchEnabled: true, // 启用主输入框内直接搜索，允许在输入框中进行实时搜索
-                                    defaultSelected: ['选项4'], // 默认选中项，支持多选时传入一个包含多个标题的数组，单选时传一个单独的标题字符串
-                                    multiSelect: true, // 启用多选功能，允许用户同时选择多个项
-                                    inputMultiSelect: true
-                                });
-                            </div>
-                        </div>
+                        <input type="text" id="dropdownMultiSelect">
                     </li>
                 </ul>
+                <div class="table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>参数</th>
+                                <th>类型</th>
+                                <th>默认值</th>
+                                <th>说明</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>container</code></td>
+                                <td><code>string</code></td>
+                                <td><code>-</code></td>
+                                <td>必填，用于指定下拉菜单挂载的容器的选择器字符串。</td>
+                            </tr>
+                            <tr>
+                                <td><code>data</code></td>
+                                <td><code>array</code></td>
+                                <td><code>-</code></td>
+                                <td>必填，下拉菜单的数据项数组。</td>
+                            </tr>
+                            <tr>
+                                <td><code>customParams</code></td>
+                                <td><code>object</code></td>
+                                <td><code>{}</code></td>
+                                <td>可选，自定义参数对象。</td>
+                            </tr>
+                            <tr>
+                                <td><code>onSelect</code></td>
+                                <td><code>function</code></td>
+                                <td><code>() =&gt; {}</code></td>
+                                <td>可选，当选项被选中时的回调函数。</td>
+                            </tr>
+                            <tr>
+                                <td><code>searchEnabled</code></td>
+                                <td><code>boolean</code></td>
+                                <td><code>false</code></td>
+                                <td>可选，是否启用搜索功能。</td>
+                            </tr>
+                            <tr>
+                                <td><code>inputSearchEnabled</code></td>
+                                <td><code>boolean</code></td>
+                                <td><code>false</code></td>
+                                <td>可选，是否在输入框中启用搜索功能。</td>
+                            </tr>
+                            <tr>
+                                <td><code>defaultSelected</code></td>
+                                <td><code>string/array</code></td>
+                                <td><code>null</code></td>
+                                <td>可选，初始选中的选项标题或标题数组（多选时）。</td>
+                            </tr>
+                            <tr>
+                                <td><code>grouped</code></td>
+                                <td><code>boolean</code></td>
+                                <td><code>false</code></td>
+                                <td>可选，数据项是否分组。</td>
+                            </tr>
+                            <tr>
+                                <td><code>multiSelect</code></td>
+                                <td><code>boolean</code></td>
+                                <td><code>false</code></td>
+                                <td>可选，是否允许多选。</td>
+                            </tr>
+                            <tr>
+                                <td><code>inputMultiSelect</code></td>
+                                <td><code>boolean</code></td>
+                                <td><code>false</code></td>
+                                <td>可选，是否在输入框中显示多选结果。</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-            <div class="MainRightList grid">
+            <div class="MainRightList">
                 <h2>Cascader 级联选择器</h2>
-                <ul>
+                <ul class="grid3">
                     <li>
                         <h3>省市区级联选择</h3>
-                        <input type="text" id="locationSelector" placeholder="请选择">
-                        <script>
-                            new ZhenshangyinLinkage({
-                                container: "#locationSelector",
-                                data: chinaData,
-                                callback: (value) => {
-                                    console.log("选择的值:", value);
-                                },
-                            });
-                        </script>
-                        <div class="MainRightListPor">
-                            <div class="ZhenshangYin">
-                                new ZhenshangyinLinkage({
-                                    container: "#locationSelector",
-                                    data: chinaData,
-                                    callback: (value) => {
-                                        console.log("选择的值:", value);
-                                    },
-                                });
-                            </div>
-                        </div>
+                        <input type="text" id="cascaderProvinceCityDistrict" placeholder="请选择">
                     </li>
                     <li>
                         <h3>无限联动</h3>
-                        <input type="text" id="addressinput" placeholder="请选择">
-                        <script>
-                            const dataa = [
-                                {
-                                    name: '省1',
-                                    children: [
-                                        {
-                                            name: '市1',
-                                            children: [
-                                                { name: '区1' },
-                                                { name: '区2' }
-                                            ]
-                                        },
-                                        {
-                                            name: '市2',
-                                            children: [
-                                                { name: '区3' },
-                                                { name: '区4' }
-                                            ]
-                                        }
-                                    ]
-                                },
-                                {
-                                    name: '省2',
-                                    children: [
-                                        {
-                                            name: '市3',
-                                            children: [
-                                                { name: '区5' },
-                                                { name: '区6' }
-                                            ]
-                                        },
-                                        {
-                                            name: '市4',
-                                            children: [
-                                                { name: '区7' },
-                                                { name: '区8' }
-                                            ]
-                                        }
-                                    ]
-                                }
-                            ];
-                            new ZhenshangyinLinkage({
-                                container: '#addressinput',
-                                data: dataa,
-                                callback: (value) => {
-                                    console.log('选中的地址：', value);
-                                }
-                            });
-                        </script>
-                        <div class="MainRightListPor">
-                            <div class="ZhenshangYin">
-                                const dataa = [
-                                    {
-                                        name: '省1',
-                                        children: [
-                                            {
-                                                name: '市1',
-                                                children: [
-                                                    { name: '区1' },
-                                                    { name: '区2' }
-                                                ]
-                                            },
-                                            {
-                                                name: '市2',
-                                                children: [
-                                                    { name: '区3' },
-                                                    { name: '区4' }
-                                                ]
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        name: '省2',
-                                        children: [
-                                            {
-                                                name: '市3',
-                                                children: [
-                                                    { name: '区5' },
-                                                    { name: '区6' }
-                                                ]
-                                            },
-                                            {
-                                                name: '市4',
-                                                children: [
-                                                    { name: '区7' },
-                                                    { name: '区8' }
-                                                ]
-                                            }
-                                        ]
-                                    }
-                                ];
-                                new ZhenshangyinLinkage({
-                                    container: '#addressinput',
-                                    data: dataa,
-                                    callback: (value) => {
-                                        console.log('选中的地址：', value);
-                                    }
-                                });
-                            </div>
+                        <input type="text" id="cascaderInfinite" placeholder="请选择">
+                    </li>
+                    <li>
+                        <h3>省市区级联选择</h3>
+                        <div class="grid3">
+                            <input type="text" id="cascaderProvinceInput" placeholder="请选择">
+                            <input type="text" id="cascaderCityInput" placeholder="请选择">
+                            <input type="text" id="cascaderDistrictInput" placeholder="请选择">
                         </div>
                     </li>
                 </ul>
+                <div class="table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>参数</th>
+                                <th>类型</th>
+                                <th>默认值</th>
+                                <th>说明</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>container</code></td>
+                                <td><code>string</code></td>
+                                <td><code>-</code></td>
+                                <td>级联选择器的容器选择器，例如 <code>#cascaderProvinceCityDistrict</code>。</td>
+                            </tr>
+                            <tr>
+                                <td><code>multiInputs</code></td>
+                                <td><code>string[]</code></td>
+                                <td><code>-</code></td>
+                                <td>多输入框的选择器数组，例如
+                                    <code>['#cascaderProvinceInput', '#cascaderCityInput', '#cascaderDistrictInput']</code>。
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><code>data</code></td>
+                                <td><code>object[]</code></td>
+                                <td><code>-</code></td>
+                                <td>数据源，包含级联选择的数据结构。</td>
+                            </tr>
+                            <tr>
+                                <td><code>separator</code></td>
+                                <td><code>string</code></td>
+                                <td><code>"-"</code></td>
+                                <td>分隔符，用于连接选择的值，默认为 <code>-</code>。</td>
+                            </tr>
+                            <tr>
+                                <td><code>callback</code></td>
+                                <td><code>function</code></td>
+                                <td><code>() => {}</code></td>
+                                <td>回调函数，在选择值发生变化时触发，参数为选中的值。</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
 
-
+    <script src="map.js"></script>
+    <script src="index.js"></script>
     <script>
+        document.getElementById('showSuccessMessageA').addEventListener('click', function () {
+            new ZhenshangyinMessage({ message: '成功了', type: 'success', duration: 2000 });
+        });
+
+        document.getElementById('showWarningMessageA').addEventListener('click', function () {
+            new ZhenshangyinMessage({ message: '这是一个警告', type: 'warning', duration: 2000 });
+        });
+
+        document.getElementById('showInfoMessageA').addEventListener('click', function () {
+            new ZhenshangyinMessage({ message: '这是一个信息', type: 'info', duration: 2000 });
+        });
+
+        document.getElementById('showErrorMessageA').addEventListener('click', function () {
+            new ZhenshangyinMessage({ message: '出错了', type: 'error', duration: 2000 });
+        });
+
+        document.getElementById('showSuccessNotification').addEventListener('click', function () {
+            new ZhenshangyinNotification({ title: '提示', message: '成功了', type: 'success', duration: 2000 });
+        });
+
+        document.getElementById('showWarningNotification').addEventListener('click', function () {
+            new ZhenshangyinNotification({ title: '提示', message: '这是一个警告', type: 'warning', duration: 2000 });
+        });
+
+        document.getElementById('showInfoNotification').addEventListener('click', function () {
+            new ZhenshangyinNotification({ title: '提示', message: '这是一个信息', type: 'info', duration: 2000 });
+        });
+
+        document.getElementById('showErrorNotification').addEventListener('click', function () {
+            new ZhenshangyinNotification({ title: '提示', message: '出错了', type: 'error', duration: 2000 });
+        });
+
+        new ZhenshangyinDatePicker('#datePickerSimple', {
+            dateFormat: 'YYYY-MM-DD',
+            onDateSelect: (formattedDate) => {
+                console.log('Selected Date and Time:', formattedDate);
+            }
+        });
+
+        new ZhenshangyinDatePicker('#datePickerWithTime', {
+            dateFormat: 'YYYY-MM-DD HH:mm:ss',
+            onDateSelect: (formattedDate) => {
+                console.log('Selected Date and Time:', formattedDate);
+            }
+        });
+
+        new ZhenshangyinDateRangePicker('#dateRangePickerSimple', {
+            dateFormat: 'YYYY/MM/DD',
+            separator: '至',
+            onDateRangeSelect: (formattedRange) => {
+                console.log('Selected Date Range:', formattedRange);
+            }
+        });
+
+        new ZhenshangyinDateRangePicker('#dateRangePickerWithTime', {
+            dateFormat: 'YYYY-MM-DD HH:mm:ss',
+            separator: '至',
+            onDateRangeSelect: (formattedRange) => {
+                console.log('Selected Date Range:', formattedRange);
+            }
+        });
+
+        new ZhenshangyinMonthPicker('#monthPickerSimple', {
+            dateFormat: 'YYYY-MM',
+            onMonthSelect: (selectedMonth) => {
+                console.log('Selected Month:', selectedMonth);
+            }
+        });
+
+        new ZhenshangyinMonthPicker('#multiMonthPicker', {
+            dateFormat: 'YYYY-MM',
+            multiSelect: true,
+            onMonthSelect: (selectedMonths) => {
+                console.log('Selected Months:', selectedMonths);
+            }
+        });
+
+        new ZhenshangyinMonthRangePicker('#monthRangePicker', {
+            dateFormat: 'YYYY-MM',
+            separator: '至',
+            onMonthRangeSelect: (formattedRange) => {
+                console.log('Selected Month Range:', formattedRange);
+            }
+        });
+
+        new ZhenshangyinYearPicker('#yearPickerSimple', {
+            onYearSelect: (selectedYear) => {
+                console.log('Selected Year:', selectedYear);
+            }
+        });
+
+        new ZhenshangyinYearPicker('#multiYearPicker', {
+            multiSelect: true,
+            onYearSelect: (selectedYears) => {
+                console.log('Selected Years:', selectedYears);
+            }
+        });
+
+        new ZhenshangyinYearRangePicker('#yearRangePicker', {
+            separator: '至',
+            onYearRangeSelect: (formattedRange) => {
+                console.log('Selected Year Range:', formattedRange);
+            }
+        });
+
+        new ZhenshangyinDropdown({
+            container: '#dropdownSingleSelect',
+            data: [
+                { title: '选项1', param1: '参数1', param2: '参数2' },
+                { title: '选项2', param1: '参数3', param2: '参数4' },
+                { title: '选项3', param1: '参数5', param2: '参数6' },
+                { title: '选项4', param1: '参数1', param2: '参数2' },
+                { title: '选项5', param1: '参数3', param2: '参数4' },
+                { title: '选项6', param1: '参数5', param2: '参数6' },
+                { title: '选项7', param1: '参数1', param2: '参数2' },
+                { title: '选项8', param1: '参数3', param2: '参数4' },
+                { title: '选项9', param1: '参数5', param2: '参数6' }
+            ],
+            customParams: {
+                自定义参数1: 'param1',
+                自定义参数2: 'param2'
+            },
+            onSelect: function (item) {
+                console.log('回调函数被调用，选中的项:', item.title);
+            },
+            inputSearchEnabled: true,
+            defaultSelected: '选项4',
+        });
+
+        new ZhenshangyinDropdown({
+            container: '#dropdownMultiSelectWithDelete',
+            data: [
+                {
+                    groupTitle: '分组1',
+                    children: [
+                        { title: '选项1', param1: '参数1', param2: '参数2' },
+                        { title: '选项2', param1: '参数3', param2: '参数4' },
+                    ]
+                },
+                {
+                    groupTitle: '分组2',
+                    children: [
+                        { title: '选项3', param1: '参数5', param2: '参数6' },
+                        { title: '选项4', param1: '参数7', param2: '参数8' },
+                    ]
+                }
+            ],
+            customParams: {
+                自定义参数1: 'param1',
+                自定义参数2: 'param2',
+            },
+            onSelect: function (item) {
+                console.log('当前选中的项:', item);
+                const selectedTitles = this.selectedItems.map(selected => selected.title);
+                console.log('当前选中的标题:', selectedTitles);
+                console.log(selectedTitles.join(', '));
+            },
+            searchEnabled: true,
+            inputSearchEnabled: false,
+            defaultSelected: ['选项4'],
+            grouped: true,
+            multiSelect: true,
+        });
+
+        new ZhenshangyinDropdown({
+            container: '#dropdownMultiSelect',
+            data: [
+                { title: '选项1', param1: '参数1', param2: '参数2' },
+                { title: '选项2', param1: '参数3', param2: '参数4' },
+                { title: '选项3', param1: '参数5', param2: '参数6' }
+            ],
+            customParams: {
+                自定义参数1: 'param1',
+                自定义参数2: 'param2',
+            },
+            onSelect: function (item) {
+                console.log('当前选中的项:', item);
+                const selectedTitles = this.selectedItems.map(selected => selected.title);
+                console.log('当前选中的标题:', selectedTitles);
+                console.log(selectedTitles.join(', '));
+            },
+            searchEnabled: true,
+            inputSearchEnabled: true,
+            defaultSelected: ['选项4'],
+            multiSelect: true,
+            inputMultiSelect: true
+        });
+
+        new ZhenshangyinLinkage({
+            container: "#cascaderProvinceCityDistrict",
+            data: chinaData,
+            separator: "-",
+            callback: (value) => {
+                console.log("选择的值:", value);
+            },
+        });
+
+        const dataa = [
+            {
+                name: '省1',
+                children: [
+                    {
+                        name: '市1',
+                        children: [
+                            {
+                                name: '区1',
+                                children: [
+                                    { name: '镇1' },
+                                    { name: '镇2' }
+                                ]
+                            }
+                        ],
+                    },
+                    {
+                        name: '市2',
+                        children: [
+                            { name: '区3' },
+                            { name: '区4' }
+                        ]
+                    }
+                ]
+            },
+            {
+                name: '省2',
+                children: [
+                    {
+                        name: '市3',
+                        children: [
+                            { name: '区5' },
+                            { name: '区6' }
+                        ]
+                    },
+                    {
+                        name: '市4',
+                        children: [
+                            { name: '区7' },
+                            { name: '区8' }
+                        ]
+                    }
+                ]
+            }
+        ];
+
+        new ZhenshangyinLinkage({
+            container: '#cascaderInfinite',
+            data: dataa,
+            callback: (value) => {
+                console.log('选中的地址：', value);
+            }
+        });
+
+        new ZhenshangyinLinkage({
+            multiInputs: ['#cascaderProvinceInput', '#cascaderCityInput', '#cascaderDistrictInput'],
+            data: chinaData,
+            separator: ">",
+            callback: (value) => {
+                console.log("选择的值:", value);
+            },
+        });
+
         const listys = document.querySelectorAll('.MainRightList');
         const showioNavItems = document.querySelectorAll('.MainLeftList');
 
@@ -776,46 +848,7 @@
                 window.scrollTo({ top: listys[index].offsetTop - 100, behavior: 'smooth' });
             });
         });
-
-        function highlightCode(element) {
-            let code = element.textContent
-                .replace(/&/g, "&amp;")
-                .replace(/</g, "&lt;")
-                .replace(/>/g, "&gt;");
-
-            code = code
-                .replace(/(\/\/.*$)/gm, '<span class="comment">$1</span>')
-                .replace(/(["'`])(.*?[^\\])\1/g, '<span class="string">$1$2$1</span>')
-                .replace(/\b(\d+)\b/g, '<span class="number">$1</span>')
-                .replace(/\b([a-zA-Z_]\w*)\s*\(/g, '<span class="function">$1</span>(');
-
-            element.innerHTML = code;
-            element.classList.add("code-highlight");
-        }
-
-        document.querySelectorAll(".ZhenshangYin").forEach((block) => {
-            highlightCode(block);
-        });
-
-        document.querySelectorAll(".ZhenshangYin").forEach((block) => {
-            const copyButton = document.createElement("div");
-            copyButton.classList.add("zhenshangyin-copy-button");
-            copyButton.innerText = "复制";
-            copyButton.addEventListener("click", () => {
-                const range = document.createRange();
-                range.selectNode(block);
-                window.getSelection().removeAllRanges();
-                window.getSelection().addRange(range);
-                document.execCommand("copy");
-                window.getSelection().removeAllRanges();
-                new ZhenshangyinMessage({
-                    message: '复制成功',
-                    type: 'success',
-                    duration: 2000
-                });
-            });
-            block.parentNode.insertBefore(copyButton, block);
-        });
     </script>
 </body>
+
 </html>

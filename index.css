@@ -68,48 +68,10 @@ h2{
     font-family: "a";
     src: url("a.ttf") format("truetype");
 }
-.code-highlight {
-    background-color: #000000;
-    color: #ffffff;
-    line-height: 1.5;
-    white-space: pre-wrap;
-    font-size: 14px;
-}
 
-.code-highlight .keyword {
-    color: #ff007c;
-}
-
-.code-highlight .string {
-    color: #ffcc00;
-}
-
-.code-highlight .number {
-    color: #00d9ff;
-}
-
-.code-highlight .function {
-    color: #00ff00;
-}
-
-.code-highlight .property {
-    color: #ffa500;
-}
-
-.code-highlight .comment {
-    color: #6a9955;
-}
-
-.code-highlight .operator {
-    color: #dcdcaa;
-}
-
-.code-highlight .punctuation {
-    color: #ffffff;
-}
 
 .Main{
-    width: calc(100% - 60px);
+    width: 1400px;
     margin: 30px auto;
     display: flex;
     flex-wrap: wrap;
@@ -144,10 +106,10 @@ h2{
     color: #ffffff;
 }
 .MainRight{
-    flex: 1;
+    width: calc(100% - 250px);
     overflow: hidden;
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-wrap: wrap;
     gap: 50px;
 }
 
@@ -167,7 +129,7 @@ h2{
     margin-top: 30px;
 }
 .MainRightList button {
-    width: max-content;
+    width: 100%;
     height: 40px;
     border: 1px solid #000000;
     background: transparent;
@@ -201,9 +163,9 @@ h2{
     font-size: 12px;
     color: #000000;
 }
-#myInputdel,
+#dropdownMultiSelectWithDelete,
 .MainRightList input{
-    width: 300px;
+    width: 100%;
     height: 40px;
     padding: 0 10px;
     border: 1px solid #000000;
@@ -213,9 +175,45 @@ h2{
     display: flex;
     align-items: center;
     gap: 10px;
+    border-radius: 5px;
 }
-.grid ul{
+.grid2{
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
+}
+.grid3{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+.grid4{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 20px;
+}
+.table{
+    width: 100%;
+    overflow: hidden;
+    margin-top: 15px;
+    font-size: 13px;
+    color: #000000;
+}
+.table table{
+    width: 100%;
+    overflow: hidden;
+    border: 1px solid #e9e9e9;
+}
+.table table th{
+    border: 1px solid #e9e9e9;
+    padding: 10px 20px;
+    text-align: left;
+    background: #f7f7f7;
+    white-space: nowrap;
+    font-size: 14px;
+}
+.table table td{
+    border: 1px solid #e9e9e9;
+    padding: 10px 20px;
+    text-align: left;
 }
