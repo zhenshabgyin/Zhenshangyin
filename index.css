@@ -71,7 +71,7 @@ h2{
 
 
 .Main{
-    width: 1400px;
+    width: 1200px;
     margin: 30px auto;
     display: flex;
     flex-wrap: wrap;
@@ -216,4 +216,20 @@ h2{
     border: 1px solid #e9e9e9;
     padding: 10px 20px;
     text-align: left;
+}
+.code{
+    width: 100%;
+    overflow: hidden;
+    margin-top: 15px;
+}
+.code code{
+    display: block;
+    width: max-content;
+    max-width: 100%;
+    background: #f7f7f7;
+    padding: 10px 15px;
+    border-radius: 3px;
+    color: #666;
+    font-size: 14px;
+    border: 1px solid #eee;
 }
