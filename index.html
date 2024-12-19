@@ -571,6 +571,18 @@
                         </thead>
                         <tbody>
                             <tr>
+                                <td><code>range</code></td>
+                                <td><code>boolean</code></td>
+                                <td><code>false</code></td>
+                                <td>是否为区间选择</td>
+                            </tr>
+                            <tr>
+                                <td><code>value</code></td>
+                                <td><code>number/array</code></td>
+                                <td><code>-</code></td>
+                                <td>初始值，区间选择时为数组</td>
+                            </tr>
+                            <tr>
                                 <td><code>min</code></td>
                                 <td><code>number</code></td>
                                 <td><code>0</code></td>
@@ -583,22 +595,16 @@
                                 <td>最大值</td>
                             </tr>
                             <tr>
+                                <td><code>showStops</code></td>
+                                <td><code>boolean</code></td>
+                                <td><code>false</code></td>
+                                <td>是否显示间断点</td>
+                            </tr>
+                            <tr>
                                 <td><code>step</code></td>
                                 <td><code>number</code></td>
                                 <td><code>1</code></td>
-                                <td>步长，设置为 0 时不显示断点</td>
-                            </tr>
-                            <tr>
-                                <td><code>value</code></td>
-                                <td><code>number/array</code></td>
-                                <td><code>0</code></td>
-                                <td>初始值，区间选择时为数组</td>
-                            </tr>
-                            <tr>
-                                <td><code>range</code></td>
-                                <td><code>boolean</code></td>
-                                <td><code>false</code></td>
-                                <td>是否为区间选择</td>
+                                <td>步长</td>
                             </tr>
                             <tr>
                                 <td><code>height</code></td>
@@ -631,22 +637,10 @@
                                 <td>是否显示输入框</td>
                             </tr>
                             <tr>
-                                <td><code>showStops</code></td>
-                                <td><code>boolean</code></td>
-                                <td><code>false</code></td>
-                                <td>是否显示间断点</td>
-                            </tr>
-                            <tr>
                                 <td><code>showTooltip</code></td>
                                 <td><code>boolean</code></td>
                                 <td><code>false</code></td>
                                 <td>是否显示提示框</td>
-                            </tr>
-                            <tr>
-                                <td><code>tooltipFormatter</code></td>
-                                <td><code>function</code></td>
-                                <td><code>value => value</code></td>
-                                <td>提示框格式化函数</td>
                             </tr>
                             <tr>
                                 <td><code>vertical</code></td>
@@ -659,6 +653,12 @@
                                 <td><code>boolean</code></td>
                                 <td><code>false</code></td>
                                 <td>是否禁用</td>
+                            </tr>
+                            <tr>
+                                <td><code>tooltipFormatter</code></td>
+                                <td><code>function</code></td>
+                                <td><code>value => `${value}%`</code></td>
+                                <td>提示框格式化函数</td>
                             </tr>
                             <tr>
                                 <td><code>onChange</code></td>
@@ -981,6 +981,7 @@
             value: [20, 50],               // 初始值
             min: 0,                        // 最小值
             max: 100,                      // 最大值
+            showStops: true,               // 显示间断点
             step: 10,                      // 步长
             height: 10,                    // 轨道高度
             buttonSize: 20,                // 较大的滑块按钮
@@ -988,7 +989,6 @@
             backgroundColor: '#00000050',  // 浅绿色背景
             showInput: true,               // 显示输入框
             showTooltip: true,             // 显示提示框
-            showStops: true,               // 显示间断点
             vertical: false,               // 水平模式
             disabled: false,               // 启用状态
             tooltipFormatter: (value) => `${value}%`, // 提示框格式化
